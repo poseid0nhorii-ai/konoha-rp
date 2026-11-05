@@ -1,7 +1,7 @@
 
-import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
 const cfg=window.KONOHA_CONFIG||{}, configured=Boolean(cfg.supabaseUrl && cfg.supabaseAnonKey);
-const sb=configured?createClient(cfg.supabaseUrl,cfg.supabaseAnonKey):null;
+const sb=configured?(await import("https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm")).createClient(cfg.supabaseUrl,cfg.supabaseAnonKey):null;
 const RANKS=["Hokage","Conseiller","Commandant Jônin","Jônin","Tokubetsu Jônin","Chûnin confirmé","Chûnin","Tokubetsu Chûnin","Genin confirmé","Genin"];
 const CLANS=["Hyûga","Uchiha","Senju","Aburame","Autre"];
 const SECTIONS=[{id:"police",name:"Police",symbol:"警",detail:"Patrouilles, sécurité intérieure et rapports d'incident."},{id:"academie",name:"Académie",symbol:"学",detail:"Cours, examens et formation des futurs shinobis."},{id:"medicale",name:"Médicale",symbol:"医",detail:"Secours, interventions et dossiers médicaux RP."},{id:"diplomatique",name:"Diplomatique",symbol:"和",detail:"Accords, audiences et relations avec les autres villages."},{id:"strategie",name:"Stratégie",symbol:"策",detail:"Planification des opérations et préparation des missions."}];
